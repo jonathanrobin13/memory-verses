@@ -1,0 +1,23 @@
+Excel formatter:
+
+row thats free = 1
+
+load workbook
+load new workbook
+
+go through each row in old file
+    
+    find number of verses
+        
+    go through each verse in row
+        In verse in old file split number and verse reference and verse and put in each variable
+    
+        In new file:
+        in row that free put number in column 1
+        in row thats free put verse reference in column 2
+        in row that's free put verse in column 3
+
+        
+        
+        
+
