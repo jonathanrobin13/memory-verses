@@ -26,11 +26,18 @@ for block in blocks:
 
         for span in line["spans"]:
 
+            if span["text"] == "5. Exodus 34:7":
+                open_row += 1
+
+                old_verses.cell(open_row, 1).value = "5"
+                old_verses.cell(open_row, 2).value = "Exodus 34:7"
+                old_verses.cell(open_row, 3).value = "Keeping mercy for thousands, forgiving iniquity and transgression and sin, by no means clearing the guilty, visiting the iniquity of the fathers upon the children and the children’s children to the third and the fourth generation."
+
             # If the font in bold, then that means it is a verse heading
-            if span["font"] == "TimesNewRomanPS-BoldMT":
+            elif span["font"] == "TimesNewRomanPS-BoldMT":
 
                 # sometimes there are empty spans and headings that don't have verses, so skip them
-                if span["text"] == ' ' or span["text"] == '' or span["text"] == "PCP Sunday School Ministry - 2026 " or span["text"] == "300 Bible Verses":
+                if span["text"] == ' ' or span["text"] == '' or "PCP" in span["text"] or span["text"] == "300 Bible Verses":
                     continue
 
                 # splits verse number and reference
@@ -48,6 +55,11 @@ for block in blocks:
                 # Put in the values
                 verse_num_cell.value = verse_number
                 reference_cell.value = reference
+
+            elif span["font"] == "TimesNewRomanPSMT" and span["text"] != " ":
+                cell_verse = old_verses.cell(open_row, 3)
+
+                cell_verse.value = span["text"]
 
 
 wb.save("Memory_Verses.xlsx")
