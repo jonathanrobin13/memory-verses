@@ -3,14 +3,16 @@ import fitz
 
 # Open execl sheet
 try:
-    wb = xl.load_workbook("Memory_Verses.xlsx")
+    wb = xl.load_workbook(
+        r"C:\Users\robin\memory-verse\data\Excel Format.xlsx")
 except PermissionError:
     print("File currently open in computer, so program cannot access it. ")
-old_verses = wb["Old_Verses"]
-new_verses = wb["New Verses"]
+ws = wb["New Verses"]
+ws.title = "Verses"
+
 
 # Open PDF
-doc = fitz.open("Excel Format.xlsx")
+doc = fitz.open(r"C:\Users\robin\memory-verse\data\Bible Verses.pdf")
 
 
 for page in doc:
@@ -29,9 +31,9 @@ for page in doc:
                 if span["text"] == "5. Exodus 34:7":
                     open_row += 1
 
-                    old_verses.cell(open_row, 1).value = "5"
-                    old_verses.cell(open_row, 2).value = "Exodus 34:7"
-                    old_verses.cell(open_row, 3).value = "Keeping mercy for thousands, forgiving iniquity and transgression and sin, by no means clearing the guilty, visiting the iniquity of the fathers upon the children and the children’s children to the third and the fourth generation."
+                    ws.cell(open_row, 1).value = "5"
+                    ws.cell(open_row, 2).value = "Exodus 34:7"
+                    ws.cell(open_row, 3).value = "Keeping mercy for thousands, forgiving iniquity and transgression and sin, by no means clearing the guilty, visiting the iniquity of the fathers upon the children and the children’s children to the third and the fourth generation."
 
                 # If the font in bold, then that means it is a verse heading
                 elif span["font"] == "TimesNewRomanPS-BoldMT":
@@ -63,8 +65,8 @@ for page in doc:
 
                     # create cell
                     # add + 1 to verse_number so I can put heading for verse #, ref, and verse
-                    verse_num_cell = old_verses.cell(open_row, 1)
-                    reference_cell = old_verses.cell(open_row, 2)
+                    verse_num_cell = ws.cell(open_row, 1)
+                    reference_cell = ws.cell(open_row, 2)
 
                     # Put in the values
                     verse_num_cell.value = verse_number
@@ -74,11 +76,11 @@ for page in doc:
 
                 elif span["font"] == "TimesNewRomanPSMT" and span["text"] != ' ':
 
-                    cell_verse = old_verses.cell(open_row, 3)
+                    cell_verse = ws.cell(open_row, 3)
                     verses_list.append(span["text"])
 
 
 try:
-    wb.save("Memory_Verses.xlsx")
+    wb.save(r"C:\Users\robin\memory-verse\data\Excel Format.xlsx")
 except PermissionError:
     print("Close File in computer")
