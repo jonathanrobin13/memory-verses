@@ -29,4 +29,24 @@ Used ESV [website](https://www.esv.org/Matthew+1/) for API
 ## How it works
 -
 
+## Project Structure
+
+```text
+Memory-Verse/
+├── data/
+│   ├── 300_bible_verses_final_2026.pdf
+│   └── Memory_Verses.xlsx
+├── source/
+│   ├── esv_trans.py
+│   ├── excelformatter.py
+│   └── length_formatter.py
+│
+├── .env  
+├── plan.txt 
+├── .gitignore
+└── README.md
+```
+
+
+
 
