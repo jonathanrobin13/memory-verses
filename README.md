@@ -78,3 +78,14 @@ The verses in this file are in NKJV. Notice the word everlasting, which is diffe
 | Verse Number | Reference | Verse |
 |--------------|-----------|-------|
 | 1            |John 3:16|“For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have **eternal** life.|
+
+Notice that the word everlasting is not used in ESV, but is changed to eternal. 
+
+### verses_sorted.xlsx
+| Verse Number | Reference | Verse |
+|--------------|-----------|-------|
+| 1            |Matthew 6:11|Give us this day our daily bread.|
+| 2            |Psalm 56:3|When I am afraid, I put my trust in you.|
+
+Now the verses are ordered by length of characters from least characters to greatest characters. These are the first two verses of my sheet.
+
