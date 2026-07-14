@@ -32,7 +32,10 @@ Used ESV [website](https://www.esv.org/Matthew+1/) for API
 - I could use a converter online, but it did not give me the desired output
 - Creates Excel Format.xlsx
 
-
+### esv_trans.py
+- converts verses from NKJV to ESV version
+- order is maintained 
+- creates ESV Verses.xlsx
 
 ## Project Structure
 
