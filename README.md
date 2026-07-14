@@ -27,15 +27,23 @@ I have a memory verse competition at my church, and they gave us a PDF with so m
 Used ESV [website](https://www.esv.org/Matthew+1/) for API 
 
 ## How it works
--
+### excelformatter.py
+- converts verses from PDF to excel
+- I could use a converter online, but it did not give me the desired output
+- Creates Excel Format.xlsx
+
+
 
 ## Project Structure
 
 ```text
 Memory-Verse/
 ├── data/
-│   ├── 300_bible_verses_final_2026.pdf
-│   └── Memory_Verses.xlsx
+│   ├── Bible Verses.pdf
+│   ├── Excel Format.xlsx
+│   ├── ESV Verses.xlsx
+│   └── verses_sorted.xlsx
+│
 ├── source/
 │   ├── esv_trans.py
 │   ├── excelformatter.py
@@ -46,7 +54,4 @@ Memory-Verse/
 ├── .gitignore
 └── README.md
 ```
-
-
-
 
