@@ -63,3 +63,18 @@ Memory-Verse/
 └── README.md
 ```
 
+## Example Output
+### Excel Format.xlsx
+
+| Verse Number | Reference | Verse |
+|--------------|-----------|-------|
+| 1            |John 3:16| For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have **everlasting** life.|
+
+The verses in this file are in NKJV. Notice the word everlasting, which is different in the ESV.
+
+
+### ESV Verses.xlsx
+
+| Verse Number | Reference | Verse |
+|--------------|-----------|-------|
+| 1            |John 3:16|“For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have **eternal** life.|
