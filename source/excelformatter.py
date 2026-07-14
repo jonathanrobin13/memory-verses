@@ -7,8 +7,7 @@ try:
         r"C:\Users\robin\memory-verse\data\Excel Format.xlsx")
 except PermissionError:
     print("File currently open in computer, so program cannot access it. ")
-ws = wb["New Verses"]
-ws.title = "Verses"
+ws = wb["Verses"]
 
 
 # Open PDF
@@ -28,7 +27,7 @@ for page in doc:
 
             for span in line["spans"]:
 
-                if span["text"] == "5. Exodus 34:7":
+                if span["text"] == "5. Exodus":
                     open_row += 1
 
                     ws.cell(open_row, 1).value = "5"
