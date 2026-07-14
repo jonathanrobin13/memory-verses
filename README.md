@@ -37,6 +37,11 @@ Used ESV [website](https://www.esv.org/Matthew+1/) for API
 - order is maintained 
 - creates ESV Verses.xlsx
 
+### length_formatter.py
+- orders ESV verses from least characters to greatest characters
+- **only this file was created by chatgpt** because I was running out of time to memorize verses
+- creates verses_sorted.xlsx
+
 ## Project Structure
 
 ```text
