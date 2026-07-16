@@ -17,11 +17,20 @@ I have a memory verse competition at my church, and they gave us a PDF with so m
 
 ## Installed Libraries and Sources
 ### Python Libraries
-- tqdm (for loading bar)
-- request (for API handling)
+#### API 
+- request (for sending request)
 - python-dotenv (for keeping API secure and loading it)
+- os (to get key from env)
+- json (to get data from json file)
+
+#### Files
 - pymupdf (formerly fitz, used for handling PDF)
-- openpyxl (used for handlin excel sheets)
+- openpyxl (used for handling excel sheets)
+
+#### Other
+- pathlib (for getting paths)
+- tqdm (loading bar)
+- time (tells program to wait if API sends a request back saying to wait)
 
 ### API Source
 Used ESV [website](https://www.esv.org/Matthew+1/) for API 
@@ -42,6 +51,16 @@ Used ESV [website](https://www.esv.org/Matthew+1/) for API
 - **only this file was created by AI** because I was running out of time to memorize verses
 - creates verses_sorted.xlsx
 
+## Functions
+### files.py
+- a function that allows you to open a file with or load a workbook
+
+### api_handler.py
+- load **api_settings.json**
+- stores preferences for verse from the json and stores it in variables
+- since json file does not store API key, this program gets it and adds it to the variables
+- 
+
 ## AI Usage
 This project used AI to help with the concepts of the code and to create length_formatter.py. That file was the only file that was written by AI and edited a little bit by me. The rest of the files were made by me. 
 
@@ -56,39 +75,18 @@ Memory-Verse/
 │   └── verses_sorted.xlsx
 │
 ├── source/
+│   ├── API_System/
+│   │   ├── api_handler.py
+│   │   └── api_settings.json
+│   │   
 │   ├── esv_trans.py
 │   ├── excelformatter.py
 │   └── length_formatter.py
 │
+│
 ├── .env  
-├── plan.txt 
+├── LICENSE 
 ├── .gitignore
 └── README.md
 ```
-
-## Example Output
-### Excel Format.xlsx
-
-| Verse Number | Reference | Verse |
-|--------------|-----------|-------|
-| 1            |John 3:16| For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have **everlasting** life.|
-
-The verses in this file are in NKJV. Notice the word everlasting, which is different in the ESV.
-
-
-### ESV Verses.xlsx
-
-| Verse Number | Reference | Verse |
-|--------------|-----------|-------|
-| 1            |John 3:16|“For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have **eternal** life.|
-
-Notice that the word everlasting is not used in ESV, but is changed to eternal. 
-
-### verses_sorted.xlsx  
-| Verse Number | Reference | Verse |
-|--------------|-----------|-------|
-| 1            |Matthew 6:11|Give us this day our daily bread.|
-| 2            |Psalm 56:3|When I am afraid, I put my trust in you.|
-
-Now the verses are ordered by length of characters from least characters to greatest characters. These are the first two verses of my sheet.
 
