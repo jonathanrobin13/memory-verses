@@ -1,4 +1,4 @@
-import openpyxl as xl
+from openpyxl import Workbook
 
 from files import file
 
@@ -9,11 +9,12 @@ from tqdm import tqdm
 
 import time
 
+max_row = int(input("Enter the max number of rows: "))
 
-excel_format_xlsx = file("Excel_Format.xlsx", True)
+excel_format_xlsx = file("Excel_Format_Example.xlsx", True)
 ws = excel_format_xlsx["Verses"]
 
-esv_verses_xlsx = file("ESV_Verses.xlsx", True)
+esv_verses_xlsx = file("ESV_Verses_Example.xlsx", True)
 ws_new = esv_verses_xlsx["Verses"]
 
 
@@ -24,9 +25,11 @@ references = []
 
 session = requests.Session()
 
-for row in tqdm(range(2, 302)):
+for row in tqdm(range(2, max_row+1)):
     reference_cell = ws.cell(row, 2)
     reference = reference_cell.value
+
+    ws_new.cell(row, 2).value = reference
 
     params["q"] = reference
 
@@ -43,6 +46,7 @@ for row in tqdm(range(2, 302)):
     try:
         verse_cell.value = verse['passages'][0].strip()
     except KeyError:
+        print(reference)
         print(verse)
         print(row)
         time.sleep(60)
@@ -50,4 +54,4 @@ for row in tqdm(range(2, 302)):
 session.close()
 
 
-esv_verses_xlsx.save(file("ESV_Verses.xlsx", False))
+esv_verses_xlsx.save(file("ESV_Verses_Example.xlsx", False))
