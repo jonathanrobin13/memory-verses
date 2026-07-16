@@ -4,3 +4,5 @@ data/Bible_Verses.pdf
 data/Excel_Format.xlsx
 data/ESV_Verses.xlsx
 data/verses_sorted.xlsx
+
+*__pycache__
