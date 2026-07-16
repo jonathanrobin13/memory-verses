@@ -1,5 +1,7 @@
 import openpyxl as xl
 
+from pathlib import Path
+
 from dotenv import load_dotenv
 import os
 import requests
@@ -8,11 +10,16 @@ from tqdm import tqdm
 
 import time
 
-wb = xl.load_workbook(r"C:\Users\robin\memory-verse\data\Excel Format.xlsx")
+
+project_folder = Path(__file__).parent.parent
+data_folder = project_folder / "data"
+
+excel_format_file = data_folder / "Excel_Format.xlsx"
+wb = xl.load_workbook(excel_format_file)
 ws = wb["Verses"]
 
-
-wb_new = xl.load_workbook(r"C:\Users\robin\memory-verse\data\ESV Verses.xlsx")
+esv_verses_file = data_folder / "ESV_Verses.xlsx"
+wb_new = xl.load_workbook(esv_verses_file)
 ws_new = wb_new['Verses']
 
 load_dotenv()
