@@ -83,7 +83,7 @@ Memory-Verse/
 │   ├── excelformatter.py
 │   └── length_formatter.py
 │
-│
+├── logo.png
 ├── .env  
 ├── LICENSE 
 ├── .gitignore
