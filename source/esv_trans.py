@@ -2,8 +2,7 @@ import openpyxl as xl
 
 from files import file
 
-from dotenv import load_dotenv
-import os
+from API_System.api_handler import import_json
 import requests
 
 from tqdm import tqdm
@@ -18,27 +17,7 @@ esv_verses_xlsx = file("ESV_Verses.xlsx", True)
 ws_new = esv_verses_xlsx["Verses"]
 
 
-load_dotenv()
-
-ESV_API_KEY = os.getenv("ESV_API_KEY")
-
-url = "https://api.esv.org/v3/passage/text/"
-
-headers = {
-    "Authorization": f"Token {ESV_API_KEY}"
-}
-
-params = {
-    "include-passage-references": False,  # make false
-    "include-verse-numbers": False,
-    "include-first-verse-numbers": False,
-    "include-footnotes": False,
-    "include-footnote-body": False,
-    "include-headings": False,
-    "include-short-copyright": False,
-    "indent-poetry": False,
-    "include-selahs": False
-}
+url, headers, params = import_json()
 
 
 references = []
@@ -72,11 +51,3 @@ session.close()
 
 
 esv_verses_xlsx.save(file("ESV_Verses.xlsx", False))
-
-
-#     for index in range(0, len(references)):
-#         if index == 0:
-#             params["q"] = references[index]
-#             continue
-
-#         params["q"] = params["q"] + ";" + references[index]
