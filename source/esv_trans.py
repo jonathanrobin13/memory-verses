@@ -1,6 +1,6 @@
 import openpyxl as xl
 
-from pathlib import Path
+from files import file
 
 from dotenv import load_dotenv
 import os
@@ -11,16 +11,12 @@ from tqdm import tqdm
 import time
 
 
-project_folder = Path(__file__).parent.parent
-data_folder = project_folder / "data"
+excel_format_xlsx = file("Excel_Format.xlsx", True)
+ws = excel_format_xlsx["Verses"]
 
-excel_format_file = data_folder / "Excel_Format.xlsx"
-wb = xl.load_workbook(excel_format_file)
-ws = wb["Verses"]
+esv_verses_xlsx = file("ESV_Verses.xlsx", True)
+ws_new = esv_verses_xlsx["Verses"]
 
-esv_verses_file = data_folder / "ESV_Verses.xlsx"
-wb_new = xl.load_workbook(esv_verses_file)
-ws_new = wb_new['Verses']
 
 load_dotenv()
 
@@ -75,7 +71,7 @@ for row in tqdm(range(2, 302)):
 session.close()
 
 
-wb_new.save(r"C:\Users\robin\memory-verse\data\ESV Verses.xlsx")
+esv_verses_xlsx.save(file("ESV_Verses.xlsx", False))
 
 
 #     for index in range(0, len(references)):

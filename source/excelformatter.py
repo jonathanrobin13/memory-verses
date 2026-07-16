@@ -1,17 +1,16 @@
 import openpyxl as xl
 import fitz
+from files import file
 
-# Open execl sheet
-try:
-    wb = xl.load_workbook(
-        r"C:\Users\robin\memory-verse\data\Excel Format.xlsx")
-except PermissionError:
-    print("File currently open in computer, so program cannot access it. ")
-ws = wb["Verses"]
+
+# Open excel sheet
+
+excel_format_xlsx = file("Excel_Format.xlsx", True)
+ws = excel_format_xlsx["Verses"]
 
 
 # Open PDF
-doc = fitz.open(r"C:\Users\robin\memory-verse\data\Bible Verses.pdf")
+doc = fitz.open(file("Bible_Verses.pdf", False))
 
 
 for page in doc:
@@ -79,7 +78,4 @@ for page in doc:
                     verses_list.append(span["text"])
 
 
-try:
-    wb.save(r"C:\Users\robin\memory-verse\data\Excel Format.xlsx")
-except PermissionError:
-    print("Close File in computer")
+excel_format_xlsx.save(file("Excel_Format.xlsx", False))

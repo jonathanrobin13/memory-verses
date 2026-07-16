@@ -1,13 +1,17 @@
 from openpyxl import load_workbook, Workbook
+from files import file
 
 # Load the original workbook
-old_wb = load_workbook(r"C:\Users\robin\memory-verse\data\ESV Verses.xlsx")
-old_ws = old_wb["Verses"]
+# old_wb = load_workbook(r"C:\Users\robin\memory-verse\data\ESV Verses.xlsx")
+# old_ws = old_wb["Verses"]
+
+esv_verses_xlsx = file("ESV_Verses.xlsx", True)
+old_ws = esv_verses_xlsx["Verses"]
 
 # Create a new workbook
-new_wb = Workbook()
-new_ws = new_wb.active
-new_ws.title = "Sorted Verses"
+verses_sorted_xlsx = file("verses_sorted.xlsx", True)
+new_ws = verses_sorted_xlsx["Sorted Verses"]
+
 
 rows = []
 
@@ -32,4 +36,4 @@ for i, (_, reference, verse) in enumerate(rows, start=2):
     new_ws.cell(row=i, column=3).value = verse
 
 # Save the new workbook
-new_wb.save(r"C:\Users\robin\memory-verse\data\verses_sorted.xlsx")
+verses_sorted_xlsx.save(file("verses_sorted.xlsx", False))
