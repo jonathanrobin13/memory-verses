@@ -1,8 +1,14 @@
 .env 
 
-data/Bible_Verses.pdf
-data/Excel_Format.xlsx
-data/ESV_Verses.xlsx
-data/verses_sorted.xlsx
+# Everything inside of data ignored
+data/*
+
+# Example data is not ignored
+!data/example_data/
+!data/example_data/*
+
+# Don't ignore .gitkeep
+!data/.gitkeep
+
 
 *__pycache__
