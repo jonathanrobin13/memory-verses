@@ -69,10 +69,14 @@ This project used AI to help with the concepts of the code and to create length_
 ```text
 Memory-Verse/
 ├── data/
-│   ├── Bible Verses.pdf
-│   ├── Excel Format.xlsx
-│   ├── ESV Verses.xlsx
-│   └── verses_sorted.xlsx
+│   ├── example_data/
+│   │    ├── Bible_Verses_Example.pdf
+│   │    ├── Excel_Format_Example.xlsx
+│   │    ├── ESV_Verses_Example.xlsx
+│   │    └── Verses_Sorted_Example.xlsx
+│   │
+│   └── .gitkeep
+│   
 │
 ├── source/
 │   ├── API_System/
