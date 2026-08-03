@@ -1,15 +1,17 @@
 import fitz
 from files import file
 
+PDF = "300_bible_verses_final.pdf"
+EXCEL_FILE = "Excel_Format.xlsx"
 
 # Open excel sheet
-excel_format_xlsx = file("Excel_Format_Example.xlsx", True)
+excel_format_xlsx = file(EXCEL_FILE, True)
 ws = excel_format_xlsx.active
 ws.title = "Verses"
 
 
 # Open PDF
-doc = fitz.open(file("Bible_Verses_Example.pdf", False))
+doc = fitz.open(file("Bible_Verses.pdf", False))
 
 
 for page in doc:
@@ -25,8 +27,7 @@ for page in doc:
 
             for span in line["spans"]:
 
-                if "5." in span["text"]:
-                    print(span["text"])
+                if "5. Exodus" in span["text"]:
 
                     open_row += 1
 
@@ -39,7 +40,7 @@ for page in doc:
                     complete_verse = ""
 
                     # sometimes there are empty spans and headings that don't have verses and there are headings, so skip them
-                    if span["text"] == ' ' or "School" in span["text"] or span["text"] == "300 Bible Verses ":
+                    if span["text"] == ' ' or "School" in span["text"] or span["text"] == "300 Bible Verses":
                         continue
 
                     # # If the text is bolded, then that means that there was a verse completed
@@ -71,4 +72,4 @@ for page in doc:
                     reference_cell.value = reference
 
 
-excel_format_xlsx.save(file("Excel_Format_Example.xlsx", False))
+excel_format_xlsx.save(file(EXCEL_FILE, False))
