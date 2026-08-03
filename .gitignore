@@ -4,8 +4,8 @@
 data/*
 
 # Example data is not ignored
-!data/example_data/
-!data/example_data/*
+!data/example-data/
+!data/example-data/*
 
 # Don't ignore .gitkeep
 !data/.gitkeep
