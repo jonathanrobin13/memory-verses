@@ -1,17 +1,13 @@
-import openpyxl
 from files import file
 
 
-def length_formatter():
+def length_formatter(input_filename, output_filename):
 
-    INPUT_EXCEL_FILE = "Excel_Format.xlsx"
-    OUTPUT_EXCEL_FILE = "verses_sorted.xlsx"
+    input_file = file(input_filename, True)
+    old_ws = input_file.active
 
-    esv_verses_xlsx = file(INPUT_EXCEL_FILE, True)
-    old_ws = esv_verses_xlsx.active
-
-    verses_sorted_xlsx = file(OUTPUT_EXCEL_FILE, True)
-    new_ws = verses_sorted_xlsx["Sorted Verses"]
+    output_file = file(output_filename, True)
+    new_ws = output_file.active
 
     new_ws.delete_rows(2, new_ws.max_row)
 
@@ -43,8 +39,11 @@ def length_formatter():
     new_ws.cell(1, 3).value = "Verse"
 
     # Save the new workbook
-    verses_sorted_xlsx.save(file(OUTPUT_EXCEL_FILE, False))
+    output_file.save(file(output_filename, False))
 
 
-if __name__ == "main":
-    length_formatter()
+if __name__ == "__main__":
+    print("length_formatter.py")
+    input_file = input("Name of input file : ")
+    output_file = input("name of output file: ")
+    length_formatter(input_file, output_file)
